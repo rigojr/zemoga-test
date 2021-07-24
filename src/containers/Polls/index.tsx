@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPollsService } from '../../services/pollsService';
 import { pollsSelector } from '../../redux/reducers/pollReducer';
 import { v4 as uuidv4 } from 'uuid';
 import Spinner from '../../components/Spinner';
 import './styles.scss';
+import Dropdown, { IDropdownProps } from '../../components/Dropdown';
+
+const availableOptions = ['List', 'Grid'];
 
 /**
  * Polls container is focused on handling all the logic, services request and presentational components.
@@ -12,10 +15,17 @@ import './styles.scss';
 const Polls: React.FC = () => {
   const dispatch = useDispatch();
   const { polls, loading, error } = useSelector(pollsSelector);
+  const [optionSelected, setOptionSelected] = useState(availableOptions[0]);
 
   useEffect(() => {
     dispatch(getPollsService());
   }, [dispatch]);
+
+  const dropdownProps: IDropdownProps = {
+    setOptionSelected,
+    optionSelected,
+    availableOptions,
+  };
 
   if (loading)
     return (
@@ -32,7 +42,14 @@ const Polls: React.FC = () => {
       </div>
     );
 
-  return <>{polls.length > 0 && polls.map(poll => <p key={uuidv4()}>{poll.name}</p>)}</>;
+  return (
+    <div className="polls-container">
+      <div className="polls-container__header-rulings">
+        <h1 className="header-rulings__title">Previous Rulings</h1>
+        <Dropdown {...dropdownProps} />
+      </div>
+    </div>
+  );
 };
 
 export default Polls;

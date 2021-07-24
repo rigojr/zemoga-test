@@ -16,3 +16,18 @@
     text-align: center;
   }
 }
+
+.polls-container {
+  &__header-rulings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-rulings {
+    &__title {
+      font-size: 2.5em;
+      font-weight: 100;
+      margin: 0;
+    }
+  }
+}
