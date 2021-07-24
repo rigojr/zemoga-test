@@ -1,0 +1,18 @@
+@import '../../common/colors.scss';
+@import '../../common/fonts.scss';
+
+.loading-container {
+  margin: 30px 0px;
+}
+
+.error-container {
+  &__title {
+    color: $color-darker-gray;
+    text-align: center;
+    font-size: $banner-title-font-size;
+  }
+  &__error {
+    color: $color-darker-gray;
+    text-align: center;
+  }
+}

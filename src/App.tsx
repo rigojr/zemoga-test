@@ -1,8 +1,8 @@
 import React from 'react';
-import PollList from './containers/PollList';
+import Polls from './containers/Polls';
 
 const App: React.FC = () => {
-  return <PollList />;
+  return <Polls />;
 };
 
 export default App;
