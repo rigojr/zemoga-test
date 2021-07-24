@@ -1,0 +1,60 @@
+@import '../../common/colors.scss';
+@import '../../common/fonts.scss';
+
+.list-container {
+  background-color: $color-dark-gray;
+  margin: 20px 0px;
+
+  &__upper-content,
+  .upper-content {
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.5fr;
+
+    &__summary,
+    &__side-actions {
+      padding: 5px 10px;
+    }
+
+    &__summary {
+      & > * {
+        margin: 0px;
+        color: $color-white;
+      }
+      h2 {
+        font-size: $regular-title-font-size;
+      }
+      p {
+        padding-top: 10px;
+        font-weight: 200;
+      }
+    }
+  }
+  &__gauge-bar,
+  .gauge-bar {
+    display: flex;
+
+    &__positive,
+    &__negative {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 5px 0px;
+      p {
+        margin: 0px;
+        color: $color-white;
+        font-size: $banner-title-font-size;
+        font-weight: 200;
+      }
+    }
+
+    &__positive {
+      background-color: $color-green-gauge-bar;
+    }
+
+    &__negative {
+      flex-flow: row-reverse;
+      background-color: $color-yellow-gauge-bar;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Spinner from '../../components/Spinner';
 import './styles.scss';
 import Dropdown, { IDropdownProps } from '../../components/Dropdown';
+import PollListCard from '../../components/PollListCard';
 
 const availableOptions = ['List', 'Grid'];
 
@@ -47,6 +48,11 @@ const Polls: React.FC = () => {
       <div className="polls-container__header-rulings">
         <h1 className="header-rulings__title">Previous Rulings</h1>
         <Dropdown {...dropdownProps} />
+      </div>
+      <div className="polls-container__card-container">
+        {polls.map(poll => (
+          <PollListCard key={uuidv4()} {...poll} isAgain={false} />
+        ))}
       </div>
     </div>
   );

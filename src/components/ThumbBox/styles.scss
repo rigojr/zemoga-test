@@ -1,0 +1,15 @@
+@import '../../common/colors.scss';
+
+.thumb-container {
+  display: inline-block;
+  padding: 10px;
+  &--yellow {
+    background-color: $color-yellow-negative;
+  }
+  &--green {
+    background-color: $color-green-positive;
+  }
+  &--withoutBg {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}

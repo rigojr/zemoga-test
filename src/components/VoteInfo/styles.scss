@@ -1,0 +1,41 @@
+@import '../../common/colors.scss';
+@import '../../common/fonts.scss';
+
+.vote-info {
+  &__time-info {
+    p {
+      color: $color-white;
+      font-size: $reducer-text-font-size;
+      text-align: right;
+      &::first-letter,
+      span {
+        text-transform: capitalize;
+      }
+    }
+  }
+  &__vote-actions,
+  .vote-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &__vote-option,
+    &__vote-dispatch {
+      cursor: pointer;
+    }
+
+    &__vote-option {
+      padding-right: 10px;
+    }
+
+    &__vote-dispatch {
+      box-sizing: border-box;
+      border: 1px solid $color-white;
+      background-color: $color-darker-background;
+      color: $color-white;
+      font-size: $banner-text-font-size;
+      font-weight: 200;
+      padding: 10px 20px;
+    }
+  }
+}
