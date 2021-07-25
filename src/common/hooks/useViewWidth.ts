@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * useViewWidth is a custom hook that offer the width of the current viewport.
+ */
 const useViewWidth = () => {
   const [widthView, setWidthView] = React.useState(0);
 
