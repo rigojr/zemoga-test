@@ -1,44 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Zemoga Front End Development - José Salas Test
+==================================================
 
-## Available Scripts
+## Summary
+The following project, follow all the [acceptance criteria](https://github.com/zemoga/ui-test#acceptance-criteria) shown in the Zemoga repository.
 
-In the project directory, you can run:
+Since the requirement is to add a `list of polls` to vote into a Website made with raw HTML & CSS, in order to improve the developer experience, those files were properly added into the `public folder`. With this approach, the component can be seen in live into the expected context.
 
-### `npm start`
+## Pre-requisite
+To fully run the current project, please be sure to have the following versions:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`Node v14.16.0` & `Npm v6.13.7`.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Start Project
+In order to start, please go to the root folder and execute `npm run start`.
 
-### `npm test`
+## Tools & Packages
+1. `Typescript`, with this javascript subset are avoided a lot of common mistakes and improve our code with strong type.
+2. `create-react-app`, the current project was bootstrapping using `npx create-react-app my-app --template redux-typescript`, adding `redux toolkit` & `typescript` templates.
+3. `Sass`, with this CSS preprocessor and the `BEM` methodology the code experience is powerful.
+4. `esLint` & `prettier` are being used in order to improve easy code reading.
+5. `date-fns` is used to manage all date-related logic.
+6. `axios` is used to manage all promise http(s) calls.
+7. `firebase`, to respond the persist requirement, all the data gave into the `data.json` was migrated to `firebase - real time database`. With this service is possible to get the needed data and to mutate it.
+8. `react-icons` provide the required icons.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Improvement opportunities
+1. Add `unit testings`, to introduce the best good practice to the code, It is important to invest the required time to test the code with a good coverage, including edge cases.
+2. Integrate `redux persist` or any other persist tool, in order to manage the user session, with this approach it is possible to determine for which poll the user has already voted.
+3. Improve the refresh process, after a vote is emitted, it is important to refresh all the current polls with `firebase`, to properly handle the expected concurrence, and avoid data incongruity.
+4. Prepare the end project (where this inner project will be living), the idea is to integrate easily after any update is made.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### This document was made by José Salas ([@rigojr](https://github.com/rigojr))
