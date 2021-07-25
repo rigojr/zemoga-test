@@ -7,6 +7,7 @@ type bgTypes = 'green' | 'yellow' | 'withoutBg';
 
 interface IThumbBox {
   isPositive: boolean;
+  isReducer?: boolean;
   bgType?: bgTypes;
 }
 
@@ -17,10 +18,16 @@ interface IThumbBox {
 const ThumbBox: React.FC<IThumbBox> = ({
   isPositive,
   bgType = isPositive ? 'green' : 'yellow',
+  isReducer = false,
 }) => {
+  const iconProps = {
+    color: 'white',
+    size: isReducer ? '0.8em' : '1em',
+  };
+
   return (
     <div className={`thumb-container thumb-container--${bgType}`}>
-      {isPositive ? <FaThumbsUp color="white" /> : <FaThumbsDown color="white" />}
+      {isPositive ? <FaThumbsUp {...iconProps} /> : <FaThumbsDown {...iconProps} />}
     </div>
   );
 };

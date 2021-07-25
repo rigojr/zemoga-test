@@ -5,6 +5,7 @@
   position: relative;
   width: 100%;
   max-width: 150px;
+  cursor: pointer;
   &__option-selected,
   &__inner-options {
     border: 2px solid $color-black;

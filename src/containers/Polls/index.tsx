@@ -5,7 +5,7 @@ import { pollsSelector } from '../../redux/reducers/pollReducer';
 import Spinner from '../../components/Spinner';
 import './styles.scss';
 import Dropdown, { IDropdownProps } from '../../components/Dropdown';
-import PollListCard from '../../components/PollListCard';
+import PollListCard from '../../components/PollCard';
 
 const availableOptions = ['List', 'Grid'];
 
@@ -50,9 +50,11 @@ const Polls: React.FC = () => {
         <h1 className="header-rulings__title">Previous Rulings</h1>
         <Dropdown {...dropdownProps} />
       </div>
-      <div className="polls-container__card-container">
+      <div
+        className={`polls-container__card-container polls-container__card-container--${optionSelected.toLowerCase()}`}
+      >
         {polls.map(poll => (
-          <PollListCard key={poll.id} poll={poll} />
+          <PollListCard key={poll.id} poll={poll} option={optionSelected.toLowerCase()} />
         ))}
       </div>
     </div>

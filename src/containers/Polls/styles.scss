@@ -11,6 +11,7 @@
     text-align: center;
     font-size: $banner-title-font-size;
   }
+
   &__error {
     color: $color-darker-gray;
     text-align: center;
@@ -18,11 +19,21 @@
 }
 
 .polls-container {
+  &__card-container {
+    margin: 20px 0px;
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+  }
+
   &__header-rulings {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   .header-rulings {
     &__title {
       font-size: 2.5em;

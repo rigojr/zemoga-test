@@ -2,24 +2,52 @@
 @import '../../common/fonts.scss';
 
 .overlay-container {
-  background-size: contain;
   background-repeat: no-repeat;
+  &--list {
+    background-size: contain;
+  }
+
+  &--grid {
+    display: flex;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .list-container {
-  margin: 20px 0px;
-  background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,0) 5%, $color-dark-gray 20%);
+  &--list {
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 5%, $color-dark-gray 20%);
+  }
+
+  &--grid {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    background-color: $color-dark-background;
+  }
 
   &__upper-content,
   .upper-content {
     margin: 10px 0px;
     display: grid;
-    grid-template-columns: 1fr 3fr 1.5fr;
+
+    &--list {
+      grid-template-columns: 1fr 3fr 1.5fr;
+    }
+
+    &__inner-section {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 100px;
+    }
 
     &__summary,
     &__side-actions {
-      padding: 5px 10px;
+      padding: 10px 20px;
+      &--grid {
+        padding-top: 0px;
+      }
     }
 
     &__summary {
@@ -28,11 +56,14 @@ background: linear-gradient(90deg, rgba(255,255,255,0) 5%, $color-dark-gray 20%)
         color: $color-white;
       }
       h2 {
-        font-size: $regular-title-font-size;
+        font-size: $banner-title-font-size;
+        font-weight: bold;
       }
       p {
         padding-top: 10px;
         font-weight: 200;
+        text-align: justify;
+        padding-right: 30px;
       }
     }
   }
@@ -51,6 +82,11 @@ background: linear-gradient(90deg, rgba(255,255,255,0) 5%, $color-dark-gray 20%)
         color: $color-white;
         font-size: $banner-title-font-size;
         font-weight: 200;
+      }
+      &--grid {
+        p {
+          font-size: $reducer-text-font-size;
+        }
       }
     }
 
