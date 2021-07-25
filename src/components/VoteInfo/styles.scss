@@ -25,7 +25,10 @@
     }
 
     &__vote-option {
-      padding-right: 10px;
+      margin-right: 10px;
+      &--selected {
+        border: 1px solid $color-white;
+      }
     }
 
     &__vote-dispatch {
@@ -36,6 +39,10 @@
       font-size: $banner-text-font-size;
       font-weight: 200;
       padding: 10px 20px;
+      &--disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
   }
 }

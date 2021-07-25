@@ -52,7 +52,7 @@ const Polls: React.FC = () => {
       </div>
       <div className="polls-container__card-container">
         {polls.map(poll => (
-          <PollListCard key={poll.id} {...poll} isAgain={false} />
+          <PollListCard key={poll.id} poll={poll} />
         ))}
       </div>
     </div>

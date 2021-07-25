@@ -39,11 +39,16 @@ const pollsSlice = createSlice({
       state.loading = false;
       state.error = errorMessage;
     },
+    // VOTE
+    pollUpdate: (state, { payload }) => {
+      const { updatedPolls } = payload;
+      state.polls = updatedPolls;
+    },
   },
 });
 
 export const pollsSelector = (state: { poll: PollsState }) => state.poll;
 
-export const { getPolls, getPollsSuccess, getPollsFailed } = pollsSlice.actions;
+export const { getPolls, getPollsSuccess, getPollsFailed, pollUpdate } = pollsSlice.actions;
 
 export default pollsSlice.reducer;

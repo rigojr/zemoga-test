@@ -2,33 +2,26 @@ import React from 'react';
 import { formatDistance } from 'date-fns';
 import { IPoll } from '../../common/type';
 import ThumbBox from '../ThumbBox';
-import VoteInfo, { IVoteInfo } from '../VoteInfo';
+import Vote, { IVoteProps } from '../../containers/Vote';
 
 import './styles.scss';
 
-export interface IPollListCardProps extends IPoll {
-  isAgain: boolean;
+export interface IPollListCardProps {
+  poll: IPoll;
 }
 
 /**
  * Presentational component focuses to show the Poll Card when the list option is selected.
  */
-const PollListCard: React.FC<IPollListCardProps> = ({
-  isAgain,
-  name,
-  description,
-  category,
-  picture,
-  lastUpdated,
-  votes,
-}) => {
-  const date = formatDistance(new Date(), Date.parse(lastUpdated));
+const PollListCard: React.FC<IPollListCardProps> = ({ poll }) => {
+  const { votes, picture, name, description, lastUpdated } = poll;
   const { positive, negative } = votes;
+  const date = formatDistance(new Date(), Date.parse(lastUpdated));
   const positivePercentage = (positive * 100) / (positive + negative);
   const positiveGaugeWidth = positivePercentage > 90 ? 90 : positivePercentage;
-  const voteInfoProps: IVoteInfo = {
-    isAgain,
-    category,
+
+  const voteProps: IVoteProps = {
+    poll,
     date,
   };
 
@@ -49,7 +42,7 @@ const PollListCard: React.FC<IPollListCardProps> = ({
             <p>{description}</p>
           </div>
           <div className="upper-content__side-actions">
-            <VoteInfo {...voteInfoProps} />
+            <Vote {...voteProps} />
           </div>
         </div>
         <div className="list-container__gauge-bar">
