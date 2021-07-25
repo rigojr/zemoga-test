@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPollsService } from '../../services/pollsService';
 import { pollsSelector } from '../../redux/reducers/pollReducer';
 import Spinner from '../../components/Spinner';
 import './styles.scss';
 import Dropdown, { IDropdownProps } from '../../components/Dropdown';
-import PollListCard from '../../components/PollCard';
+import PollCard from '../../components/PollCard';
+import useViewWidth from '../../common/hooks/useViewWidth';
 
 const availableOptions = ['List', 'Grid'];
 
@@ -16,10 +17,16 @@ const Polls: React.FC = () => {
   const dispatch = useDispatch();
   const { polls, loading, error } = useSelector(pollsSelector);
   const [optionSelected, setOptionSelected] = useState(availableOptions[0]);
+  const viewWidth = useViewWidth();
 
   useEffect(() => {
     dispatch(getPollsService());
   }, [dispatch]);
+
+  const option = useMemo(() => {
+    if (viewWidth <= 480) return 'grid';
+    return optionSelected.toLowerCase();
+  }, [optionSelected, viewWidth]);
 
   const dropdownProps: IDropdownProps = {
     setOptionSelected,
@@ -48,13 +55,11 @@ const Polls: React.FC = () => {
     <div className="polls-container">
       <div className="polls-container__header-rulings">
         <h1 className="header-rulings__title">Previous Rulings</h1>
-        <Dropdown {...dropdownProps} />
+        {viewWidth > 480 && <Dropdown {...dropdownProps} />}
       </div>
-      <div
-        className={`polls-container__card-container polls-container__card-container--${optionSelected.toLowerCase()}`}
-      >
+      <div className={`polls-container__card-container polls-container__card-container--${option}`}>
         {polls.map(poll => (
-          <PollListCard key={poll.id} poll={poll} option={optionSelected.toLowerCase()} />
+          <PollCard key={poll.id} poll={poll} option={option} />
         ))}
       </div>
     </div>

@@ -42,3 +42,29 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .polls-container {
+    &__card-container {
+      &--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .polls-container {
+    &__card-container {
+      &--grid {
+        display: flex;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+}

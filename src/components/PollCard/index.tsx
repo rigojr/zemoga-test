@@ -6,6 +6,7 @@ import Vote, { IVoteProps } from '../../containers/Vote';
 import './styles.scss';
 import InnerHoc from '../../hoc/InnerHoc';
 import { stringFormatter } from '../../common/utils';
+import useViewWidth from '../../common/hooks/useViewWidth';
 
 export interface IPollCardProps {
   poll: IPoll;
@@ -18,6 +19,7 @@ export interface IPollCardProps {
 const PollCard: React.FC<IPollCardProps> = ({ poll, option }) => {
   const { votes, picture, name, description, lastUpdated } = poll;
   const { positive, negative } = votes;
+  const widthView = useViewWidth();
   const date = formatDistance(new Date(), Date.parse(lastUpdated));
   const positivePercentage = (positive * 100) / (positive + negative);
   const positiveGaugeWidth = positivePercentage > 90 ? 90 : positivePercentage;
@@ -28,7 +30,10 @@ const PollCard: React.FC<IPollCardProps> = ({ poll, option }) => {
   };
 
   const formattedName = stringFormatter(name, option === 'grid' ? 20 : 40);
-  const formattedDesc = stringFormatter(description, option === 'grid' ? 50 : 120);
+  const formattedDesc = stringFormatter(
+    description,
+    option === 'grid' && widthView >= 768 ? 50 : 120,
+  );
 
   return (
     <div
