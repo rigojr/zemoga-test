@@ -8,7 +8,15 @@ export interface IDropdownProps {
   availableOptions: string[];
 }
 
-const Dropdown: React.FC<IDropdownProps> = ({ setOptionSelected, optionSelected, availableOptions }) => {
+/**
+ * Presentational component focuses to show a customize dropdown and handler the state related to
+ * show the option view in the Polls: List or Grid.
+ */
+const Dropdown: React.FC<IDropdownProps> = ({
+  setOptionSelected,
+  optionSelected,
+  availableOptions,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onInnerOptionsHandler = () => {

@@ -1,9 +1,15 @@
 @import '../../common/colors.scss';
 @import '../../common/fonts.scss';
 
+.overlay-container {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .list-container {
-  background-color: $color-dark-gray;
   margin: 20px 0px;
+  background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,0) 5%, $color-dark-gray 20%);
 
   &__upper-content,
   .upper-content {

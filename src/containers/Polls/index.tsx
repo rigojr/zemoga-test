@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPollsService } from '../../services/pollsService';
 import { pollsSelector } from '../../redux/reducers/pollReducer';
-import { v4 as uuidv4 } from 'uuid';
 import Spinner from '../../components/Spinner';
 import './styles.scss';
 import Dropdown, { IDropdownProps } from '../../components/Dropdown';
@@ -38,7 +37,9 @@ const Polls: React.FC = () => {
   if (error !== '')
     return (
       <div className="error-container">
-        <h1 className="error-container__title">We are sorry, it looks like something went really wrong :(</h1>
+        <h1 className="error-container__title">
+          We are sorry, it looks like something went really wrong :(
+        </h1>
         <p className="error-container__error">{error}</p>
       </div>
     );
@@ -51,7 +52,7 @@ const Polls: React.FC = () => {
       </div>
       <div className="polls-container__card-container">
         {polls.map(poll => (
-          <PollListCard key={uuidv4()} {...poll} isAgain={false} />
+          <PollListCard key={poll.id} {...poll} isAgain={false} />
         ))}
       </div>
     </div>

@@ -9,21 +9,35 @@ export interface IVoteInfo {
   category: string;
 }
 
+/**
+ * Presentational component focuses to show time and actions to start voting.
+ */
+
 const VoteInfo: React.FC<IVoteInfo> = ({ isAgain, date, category }) => {
   return (
     <div className="vote-info">
       <div className="vote-info__time-info">
         <p>
-          {date} ago in <span>{category}</span>
+          {isAgain ? (
+            'Thank you for your vote!'
+          ) : (
+            <>
+              {date} ago in <span>{category}</span>
+            </>
+          )}
         </p>
       </div>
       <div className="vote-info__vote-actions">
-        <div className="vote-actions__vote-option">
-          <ThumbBox isPositive />
-        </div>
-        <div className="vote-actions__vote-option">
-          <ThumbBox isPositive={false} />
-        </div>
+        {!isAgain && (
+          <>
+            <div className="vote-actions__vote-option">
+              <ThumbBox isPositive />
+            </div>
+            <div className="vote-actions__vote-option">
+              <ThumbBox isPositive={false} />
+            </div>
+          </>
+        )}
         <button className="vote-actions__vote-dispatch">
           {isAgain ? 'Vote Again' : 'Vote Now'}
         </button>

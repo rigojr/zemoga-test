@@ -4,6 +4,7 @@ export interface IVotes {
 }
 
 export interface IPoll {
+  id: string;
   name: string;
   description: string;
   category: string;

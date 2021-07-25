@@ -10,6 +10,10 @@ interface IThumbBox {
   bgType?: bgTypes;
 }
 
+/**
+ * Presentational component focuses to show a re-usable box with thumbs up or down, with background or not.
+ */
+
 const ThumbBox: React.FC<IThumbBox> = ({
   isPositive,
   bgType = isPositive ? 'green' : 'yellow',
