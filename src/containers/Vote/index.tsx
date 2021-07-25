@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IPoll, IVotes } from '../../common/type';
+import { IPoll, IVotes } from '../../common/types';
 import VoteInfo, { IVoteInfo } from '../../components/VoteInfo';
 import { pollsSelector } from '../../redux/reducers/pollReducer';
 import { votePollService } from '../../services/pollsService';

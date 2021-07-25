@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IPoll } from '../../common/type';
+import { IPoll } from '../../common/types';
 
 interface PollsState {
   polls: IPoll[];

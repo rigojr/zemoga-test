@@ -6,7 +6,7 @@ import {
   getPollsFailed,
   pollUpdate,
 } from '../redux/reducers/pollReducer';
-import { IPoll } from '../common/type';
+import { IPoll } from '../common/types';
 
 /**
  * This service is focus on get all the available polls in Firebase,

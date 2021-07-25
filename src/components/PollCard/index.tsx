@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatDistance } from 'date-fns';
-import { IPoll } from '../../common/type';
+import { IPoll } from '../../common/types';
 import ThumbBox from '../ThumbBox';
 import Vote, { IVoteProps } from '../../containers/Vote';
 import './styles.scss';
